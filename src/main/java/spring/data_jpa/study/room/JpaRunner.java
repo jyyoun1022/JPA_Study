@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import spring.data_jpa.study.room.entity.Account;
+import spring.data_jpa.study.room.entity.Study;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,8 +23,12 @@ public class JpaRunner implements ApplicationRunner {
         account.setUsername("Codej");
         account.setPassword("1111");
 
+        Study study = new Study();
+        study.setName("DATA JPA");
+        study.setOwner(account);
         Session session = entityManager.unwrap(Session.class);
         session.save(account);
+        session.save(study);
 //        entityManager.persist(account);
 
     }
