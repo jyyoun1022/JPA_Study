@@ -25,7 +25,9 @@ public class JpaRunner implements ApplicationRunner {
 
         Study study = new Study();
         study.setName("DATA JPA");
-        study.setOwner(account);
+
+        account.getStudents().add(study);
+
         Session session = entityManager.unwrap(Session.class);
         session.save(account);
         session.save(study);
