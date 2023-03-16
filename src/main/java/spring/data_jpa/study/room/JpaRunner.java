@@ -20,13 +20,14 @@ public class JpaRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Account account = new Account();
-        account.setUsername("Codej");
-        account.setPassword("1111");
+        account.setUsername("Codej1");
+        account.setPassword("11111");
 
         Study study = new Study();
-        study.setName("DATA JPA");
+        study.setName("DATA JPA1");
 
-        account.getStudents().add(study);
+        account.addStudy(study);
+
 
         Session session = entityManager.unwrap(Session.class);
         session.save(account);

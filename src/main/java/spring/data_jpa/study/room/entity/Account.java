@@ -19,20 +19,17 @@ public class Account {
     private String username;
     private String password;
 
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     private Set<Study> students = new HashSet<>();
 
-
-
-
-
-
-
-
-
-
-
-
+    public void addStudy(Study study) {
+        this.getStudents().add(study);
+        study.setOwner(this);
+    }
+    public void removeStudy(Study study) {
+        this.getStudents().remove(study);
+        study.setOwner(this);
+    }
 
 
 //    @Temporal(TemporalType.TIMESTAMP)

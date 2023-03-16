@@ -19,5 +19,5 @@ public class Study {
     private String name;
 
     @ManyToOne
-    private Account owner;
+    private Account owner; //기본적으로 fk를 가진쪽이 owner
 }
